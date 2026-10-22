@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CommerceMind Privacy Policy</title>
+<meta name="description" content="How CommerceMind and the AI Content Generator extension handle personal data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Open+Sans:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+/* Layout: one calm reading column, brand band on top, a short summary card, then numbered policy sections. */
+:root {
+    --bg: #fbfaff;
+    --surface: #ffffff;
+    --fg: #1f1b4d;
+    --muted: #5d5a78;
+    --line: #e4e0f6;
+    --accent: #5b4fd8;
+    --accent-2: #9a4fe0;
+    --gold: #e89a2c;
+    --tint: #f1effd;
+    --font-display: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+    --font-body: 'Source Sans 3', 'Segoe UI', Arial, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg: #13112a; --surface: #1b1938; --fg: #ecebfa; --muted: #aaa7c8; --line: #2e2b55;
+        --accent: #a99dff; --accent-2: #d3a4ff; --gold: #ffc56b; --tint: #221f45; color-scheme: dark;
+    }
+}
+:root[data-theme="dark"] {
+    --bg: #13112a; --surface: #1b1938; --fg: #ecebfa; --muted: #aaa7c8; --line: #2e2b55;
+    --accent: #a99dff; --accent-2: #d3a4ff; --gold: #ffc56b; --tint: #221f45; color-scheme: dark;
+}
+
+body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+}
+.wrap {
+    margin: 0 auto;
+    max-width: 46rem;
+    padding-block: 2.5rem 4rem;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Brand band */
+.brand { align-items: center; display: flex; gap: 0.75rem; margin-bottom: 2.25rem; }
+.brand svg { border-radius: 0.6rem; flex: none; height: 2.75rem; width: 2.75rem; }
+.brand-name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
+.brand-name span { color: var(--accent); }
+
+h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0 0 0.75rem;
+    text-wrap: balance;
+}
+.meta {
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    gap: 0.4rem 1.25rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.75rem;
+    text-transform: uppercase;
+}
+.lead { font-size: 1.15rem; margin: 0 0 2rem; }
+
+/* Summary */
+.summary {
+    background: var(--tint);
+    border-radius: 0.9rem;
+    margin-bottom: 2.25rem;
+    padding: 1.4rem 1.6rem;
+}
+.summary h2 {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+}
+.summary ul { display: grid; gap: 0.55rem; list-style: none; margin: 0; padding: 0; }
+.summary li { padding-left: 1.5rem; position: relative; }
+.summary li::before {
+    background: var(--gold);
+    clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+    content: '';
+    height: 0.8rem;
+    left: 0.1rem;
+    position: absolute;
+    top: 0.45rem;
+    width: 0.8rem;
+}
+
+/* Contents */
+.toc { border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); margin-bottom: 2.5rem; padding-block: 1.1rem; }
+.toc h2 { color: var(--muted); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; margin: 0 0 0.6rem; text-transform: uppercase; }
+.toc ol { columns: 2 16rem; column-gap: 2rem; margin: 0; padding-left: 1.4rem; }
+.toc li { break-inside: avoid; margin-bottom: 0.2rem; }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--accent-2); }
+a:focus-visible, button:focus-visible { border-radius: 4px; outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Sections */
+section { scroll-margin-top: 1.5rem; }
+section + section { margin-top: 2.25rem; }
+h2.sec {
+    align-items: baseline;
+    display: flex;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    gap: 0.65rem;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    margin: 0 0 0.6rem;
+    text-wrap: balance;
+}
+h2.sec .n { color: var(--accent); font-family: var(--font-mono); font-size: 0.95rem; font-weight: 500; }
+p { margin: 0 0 0.9rem; }
+ul.list { margin: 0 0 0.9rem; padding-left: 1.3rem; }
+ul.list li { margin-bottom: 0.35rem; }
+strong { font-weight: 600; }
+code { background: var(--tint); border-radius: 0.3rem; font-family: var(--font-mono); font-size: 0.85em; padding: 0.05rem 0.35rem; overflow-wrap: anywhere; }
+
+.table-wrap { margin: 0 0 1rem; overflow-x: auto; }
+table { border-collapse: collapse; min-width: 32rem; width: 100%; }
+th, td { border-bottom: 1px solid var(--line); padding: 0.6rem 0.75rem 0.6rem 0; text-align: left; vertical-align: top; }
+th { color: var(--muted); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+td:first-child { font-weight: 600; white-space: nowrap; }
+
+/* Contact */
+.contact {
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding: 1.1rem 1.25rem;
+}
+.contact .email { font-family: var(--font-mono); font-size: 1rem; overflow-wrap: anywhere; user-select: all; }
+.contact button {
+    background: var(--accent);
+    border: 0;
+    border-radius: 0.5rem;
+    color: var(--surface);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+}
+.contact button:hover { background: var(--accent-2); }
+.copied { color: var(--muted); font-size: 0.9rem; min-height: 1.2em; width: 100%; }
+
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; margin-top: 3rem; padding-top: 1.25rem; }
+
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+</head>
+<body>
+<main class="wrap">
+    <header>
+        <div class="brand">
+            <svg viewBox="0 0 512 512" aria-hidden="true">
+                <defs>
+                    <linearGradient id="pp-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4b3fd0"/><stop offset="1" stop-color="#9a4fe0"/></linearGradient>
+                    <linearGradient id="pp-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe9a8"/><stop offset="1" stop-color="#ffb347"/></linearGradient>
+                </defs>
+                <rect width="512" height="512" rx="116" fill="url(#pp-bg)"/>
+                <path d="M347 347 A138 138 0 1 1 347 165" fill="none" stroke="#ffffff" stroke-width="50" stroke-linecap="round"/>
+                <polyline points="196,298 222,218 252,272 282,218 308,298" fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="252" cy="272" r="15" fill="url(#pp-gold)"/>
+                <path d="M396 214 C400 245 406 251 437 256 C406 261 400 267 396 298 C392 267 386 261 355 256 C386 251 392 245 396 214 Z" fill="url(#pp-gold)"/>
+            </svg>
+            <div class="brand-name">Commerce<span>Mind</span></div>
+        </div>
+        <h1>Privacy Policy</h1>
+        <div class="meta"><span>Effective 22 October 2026</span><span>Last updated 22 October 2026</span></div>
+        <p class="lead">This policy explains what personal data CommerceMind handles and why, for our Adobe Commerce and
+            Magento Open Source extensions - including <strong>AI Content Generator</strong> - our Adobe Commerce
+            Marketplace listings, and our support.</p>
+    </header>
+
+    <aside class="summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">In short</h2>
+        <ul>
+            <li>Our extensions run on your own store. They send nothing to CommerceMind - no tracking, analytics or license checks.</li>
+            <li>AI Content Generator sends catalog and page content to the AI provider <em>you</em> choose, directly from your server, with your own API key. It never sends customer or order data.</li>
+            <li>We only receive personal data that you send us, for example in a support email, or that Adobe shares with us when you buy an extension.</li>
+            <li>We don't sell personal data and don't use it for advertising.</li>
+        </ul>
+    </aside>
+
+    <nav class="toc" aria-labelledby="toc-title">
+        <h2 id="toc-title">Contents</h2>
+        <ol>
+            <li><a href="#extension">What the extension processes</a></li>
+            <li><a href="#ai-providers">Data sent to AI providers</a></li>
+            <li><a href="#store-data">Data kept in your store</a></li>
+            <li><a href="#purchases">Purchases through Adobe</a></li>
+            <li><a href="#support">Support requests</a></li>
+            <li><a href="#use">How we use and share data</a></li>
+            <li><a href="#security">Security and retention</a></li>
+            <li><a href="#rights">Your rights</a></li>
+            <li><a href="#children">Children</a></li>
+            <li><a href="#changes">Changes to this policy</a></li>
+            <li><a href="#contact">Contact us</a></li>
+        </ol>
+    </nav>
+
+    <section id="extension">
+        <h2 class="sec"><span class="n">1</span>What the extension processes</h2>
+        <p>Our extensions are installed on, and run entirely within, your own Adobe Commerce or Magento Open Source
+            installation. They have no connection to CommerceMind: they do not send us usage statistics, store
+            details, license checks or any other data, and they set no cookies on your storefront.</p>
+        <p>When you run a store, you are responsible for the personal data in it. Our extensions process that data
+            only as described below and only when an admin uses them.</p>
+    </section>
+
+    <section id="ai-providers">
+        <h2 class="sec"><span class="n">2</span>Data sent to AI providers</h2>
+        <p>AI Content Generator writes content and creates images by calling the AI provider that the store admin
+            selects in the configuration - OpenAI, Anthropic or Groq. Requests go
+            <strong>directly from your server to that provider</strong>, authenticated with <strong>your own API
+            key</strong>. CommerceMind never receives them.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Request</th><th>Data sent</th></tr></thead>
+                <tbody>
+                    <tr><td>Product text</td><td>Name, SKU, product type, category names, storefront-visible attribute values and the current description and meta fields.</td></tr>
+                    <tr><td>Category text</td><td>Name, parent category names, product count, example product names and the current description and meta fields.</td></tr>
+                    <tr><td>CMS page or block</td><td>Title, URL key or identifier and the current content.</td></tr>
+                    <tr><td>Product images</td><td>Product name, the admin's prompt, the short description or description, and - when "Product photo" is chosen - the product's main image file.</td></tr>
+                    <tr><td>All requests</td><td>Any extra instructions typed by the admin and the brand voice text from the configuration.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>No customer, order or payment data is sent. Avoid typing personal data into the extra instructions or
+            prompts.</p>
+        <p>The provider handles this data under its own terms and privacy policy, which you accept when you create
+            your API key:
+            <a href="https://openai.com/policies/privacy-policy/" rel="noopener">OpenAI</a>,
+            <a href="https://www.anthropic.com/legal/privacy" rel="noopener">Anthropic</a>,
+            <a href="https://groq.com/privacy-policy/" rel="noopener">Groq</a>.
+            Please review them before enabling a provider.</p>
+    </section>
+
+    <section id="store-data">
+        <h2 class="sec"><span class="n">3</span>Data kept in your store</h2>
+        <p>The extension stores the following in your own database and media folder. It stays under your control
+            and is never sent to us.</p>
+        <ul class="list">
+            <li><strong>Generation jobs:</strong> the record each job is for, the generated content, the options used,
+                token counts, status, dates and the ID of the admin user who started the job.</li>
+            <li><strong>API keys:</strong> stored encrypted in the store configuration and sent only to the provider they
+                belong to.</li>
+            <li><strong>Generated images:</strong> kept in <code>pub/media/commercemind_ai/generated/</code> until they
+                are reviewed. Files of discarded, failed and deleted jobs are removed automatically, and those of applied
+                jobs after 14 days.</li>
+            <li><strong>Error log:</strong> provider error messages in <code>var/log/commercemind_ai_content_generator.log</code>.</li>
+        </ul>
+        <p>You can delete jobs at any time in the Generation Queue. Uninstalling the extension and removing its
+            database table deletes the rest; the user guide describes how.</p>
+    </section>
+
+    <section id="purchases">
+        <h2 class="sec"><span class="n">4</span>Purchases through Adobe</h2>
+        <p>Our extensions are sold through the Adobe Commerce Marketplace. Adobe processes your account, order and
+            payment under the <a href="https://www.adobe.com/privacy/policy.html" rel="noopener">Adobe Privacy Policy</a>;
+            we never receive your payment details. Adobe may share order information with us, such as your name,
+            company and email address. We use it only to provide the extension and support, and to meet legal and
+            accounting obligations.</p>
+    </section>
+
+    <section id="support">
+        <h2 class="sec"><span class="n">5</span>Support requests</h2>
+        <p>When you email us, we receive your name, email address and whatever you include in your message and
+            attachments, such as version numbers and log extracts. We use this only to answer you and to fix
+            problems in our extensions.</p>
+        <p>Please don't send API keys, passwords, or customer data from your store. If a log extract contains
+            personal data, remove it before sending.</p>
+    </section>
+
+    <section id="use">
+        <h2 class="sec"><span class="n">6</span>How we use and share data</h2>
+        <p>We use personal data only for the purposes above: to provide our extensions, answer support requests
+            and meet legal obligations. We rely on the performance of our agreement with you and on our legitimate
+            interest in supporting our products.</p>
+        <p>We don't sell personal data, don't use it for advertising, and don't share it with third parties, except
+            with the email service we use to receive and answer messages, or when the law requires us to.</p>
+    </section>
+
+    <section id="security">
+        <h2 class="sec"><span class="n">7</span>Security and retention</h2>
+        <p>We keep the personal data we hold to a minimum and protect access to it. We keep support correspondence
+            for as long as needed to resolve your request and for up to two years afterwards for future support,
+            unless you ask us to delete it sooner or the law requires us to keep it longer.</p>
+    </section>
+
+    <section id="rights">
+        <h2 class="sec"><span class="n">8</span>Your rights</h2>
+        <p>Depending on where you live, you can ask us to access, correct, delete or export the personal data we
+            hold about you, or object to or restrict how we use it. Email us and we will reply within 30 days. You
+            can also complain to your local data protection authority.</p>
+        <p>For personal data in your own store, including anything sent to an AI provider, contact the store owner
+            or the provider concerned, since they control that data.</p>
+    </section>
+
+    <section id="children">
+        <h2 class="sec"><span class="n">9</span>Children</h2>
+        <p>Our extensions and services are intended for businesses and are not directed at children under 16. We
+            don't knowingly collect their personal data.</p>
+    </section>
+
+    <section id="changes">
+        <h2 class="sec"><span class="n">10</span>Changes to this policy</h2>
+        <p>We may update this policy when our extensions or legal requirements change. We will change the date at the
+            top of this page, and describe significant changes in the release notes of the affected extension.</p>
+    </section>
+
+    <section id="contact">
+        <h2 class="sec"><span class="n">11</span>Contact us</h2>
+        <p>Questions or requests about this policy or your personal data:</p>
+        <div class="contact">
+            <span class="email" id="support-email">anju0987singh@gmail.com</span>
+            <button type="button" id="copy-email">Copy email address</button>
+            <span class="copied" id="copy-status" role="status" aria-live="polite"></span>
+        </div>
+    </section>
+
+    <footer>
+        CommerceMind &middot; Extensions for Adobe Commerce and Magento Open Source
+    </footer>
+</main>
+
+<script>
+(function () {
+    var button = document.getElementById('copy-email');
+    var status = document.getElementById('copy-status');
+    var email = document.getElementById('support-email');
+    function selectEmail() {
+        var range = document.createRange();
+        range.selectNodeContents(email);
+        var selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+    button.addEventListener('click', function () {
+        var text = email.textContent.trim();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () {
+                status.textContent = 'Email address copied.';
+            }).catch(function () {
+                selectEmail();
+                status.textContent = 'Email address selected - press Ctrl+C (or Cmd+C) to copy it.';
+            });
+        } else {
+            selectEmail();
+            status.textContent = 'Email address selected - press Ctrl+C (or Cmd+C) to copy it.';
+        }
+    });
+}());
+</script>
+</body>
+</html>
